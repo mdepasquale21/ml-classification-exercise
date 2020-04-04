@@ -22,24 +22,35 @@ from sklearn.model_selection import RepeatedStratifiedKFold
 from evaluate import *
 import operator
 
-# Importing the dataset
-dataset = pd.read_csv('Social_Network_Ads.csv')
-X = dataset.iloc[:, [2, 3]].values
-y = dataset.iloc[:, 4].values
+##########################################################################################################
+##################### Importing the dataset
+from sklearn import datasets
+from sklearn.decomposition import PCA
 
-################################################################################################################################
-print('DATA EXPLORATION')
-print('SHAPE')
-print(dataset.shape)
-print('INFO')
-dataset.info()
-print('DESCRIPTION')
-print(dataset.describe())
-n_rows_head = 5
-print('FIRST ' + str(n_rows_head) + ' ENTRIES')
-print(dataset.head(n_rows_head))
-print('\n')
-################################################################################################################################
+#import data
+iris = datasets.load_iris()
+_X = iris.data
+y = iris.target
+
+#make 2-D array of target variables
+df_y = [[int(target)] for target in y]
+
+#concatenate X array and df_y array in one row with all 5 columns
+data = np.concatenate((_X, df_y), axis=1)
+#print(data)
+
+#define types
+types_dict = {0:'Setosa', 1:'Versicolour', 2:'Virginica'}
+#define columns
+columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Type']
+
+#create a DataFrame with those data
+dataset = pd.DataFrame(data=data, columns=columns)
+
+pca = PCA(n_components=2)
+X = pca.fit_transform(_X)
+
+#########################################################################################################
 
 logit = LogisticRegression(class_weight='balanced')
 knn = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
@@ -52,24 +63,14 @@ models = {'logistic regression':logit, 'k-nearest neighbors':knn, 'adaboost':ada
            'random forest':rf, 'naive bayes':nb, 'support vector machines':svm}
 
 metrics_functions = {
-'accuracy':get_accuracy,
-'f1':get_f1,
-'f05':get_f05,
-'precision':get_precision,
-'recall':get_recall,
-'auc roc':get_roc_auc,
-'auc pr':get_pr_auc,
+'accuracy':get_balanced_accuracy,
+'f1':get_micro_f1,
 'hamming loss':get_hamming_loss
 }
 
 metrics_values = {
 'accuracy': {},
 'f1': {},
-'f05': {},
-'precision': {},
-'recall': {},
-'auc roc': {},
-'auc pr': {},
 'hamming loss': {}
 }
 
@@ -78,17 +79,12 @@ sc = StandardScaler()
 X = sc.fit_transform(X)
 
 print('Using Repeated Stratified K-Fold Cross Validation.\n')
-rskf = RepeatedStratifiedKFold(n_splits=4, n_repeats=10, random_state=36851234)
+rskf = RepeatedStratifiedKFold(n_splits=3, n_repeats=10, random_state=36851234)
 
 names = []
 results = {
 'accuracy': {},
 'f1': {},
-'f05': {},
-'precision': {},
-'recall': {},
-'auc roc': {},
-'auc pr': {},
 'hamming loss': {}
 }
 
