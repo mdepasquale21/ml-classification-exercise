@@ -22,9 +22,10 @@ from evaluate import *
 from sklearn.ensemble import AdaBoostClassifier, RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
 import sys
 
-model_names = ('logit', 'knn', 'adaboost', 'rf', 'naive_bayes', 'svm')
+model_names = ('logit', 'knn', 'adaboost', 'rf', 'naive_bayes', 'svm', 'LDA', 'QDA')
 
 try:
     model_name = sys.argv[1]
@@ -89,6 +90,12 @@ elif model_name == model_names[4]:
 elif model_name == model_names[5]:
     print('Using Support Vector Machines Classifier.')
     classifier = SVC(probability=True, class_weight='balanced')
+elif model_name == model_names[6]:
+    print('Using Linear Discriminant Analysis.')
+    classifier = LinearDiscriminantAnalysis()
+elif model_name == model_names[7]:
+    print('Using Quadratic Discriminant Analysis.')
+    classifier = QuadraticDiscriminantAnalysis()
 else:
     print('Unknown option for classifier, using naive bayes as default one!')
     model_name = 'naive_bayes'
