@@ -1,40 +1,52 @@
 1) Model number 1 according to ACCURACY
-support vector machines:0.9578 ± 0.0276
+quadratic discriminant analysis:0.9705 ± 0.0185
 2) Model number 2 according to ACCURACY
-logistic regression:0.9546 ± 0.0275
+linear discriminant analysis:0.9646 ± 0.0218
 3) Model number 3 according to ACCURACY
-k-nearest neighbors:0.9475 ± 0.0249
+support vector machines:0.9578 ± 0.0276
 4) Model number 4 according to ACCURACY
-random forest:0.9433 ± 0.0320
+logistic regression:0.9546 ± 0.0275
 5) Model number 5 according to ACCURACY
-naive bayes:0.8982 ± 0.0341
+random forest:0.9493 ± 0.0274
 6) Model number 6 according to ACCURACY
+k-nearest neighbors:0.9475 ± 0.0249
+7) Model number 7 according to ACCURACY
+naive bayes:0.8982 ± 0.0341
+8) Model number 8 according to ACCURACY
 adaboost:0.8480 ± 0.1073
 
 
 1) Model number 1 according to F1
-support vector machines:0.9580 ± 0.0270
+quadratic discriminant analysis:0.9707 ± 0.0184
 2) Model number 2 according to F1
-logistic regression:0.9547 ± 0.0273
+linear discriminant analysis:0.9647 ± 0.0217
 3) Model number 3 according to F1
-k-nearest neighbors:0.9473 ± 0.0250
+support vector machines:0.9580 ± 0.0270
 4) Model number 4 according to F1
-random forest:0.9413 ± 0.0334
+logistic regression:0.9547 ± 0.0273
 5) Model number 5 according to F1
-naive bayes:0.8980 ± 0.0336
+k-nearest neighbors:0.9473 ± 0.0250
 6) Model number 6 according to F1
+random forest:0.9440 ± 0.0307
+7) Model number 7 according to F1
+naive bayes:0.8980 ± 0.0336
+8) Model number 8 according to F1
 adaboost:0.8487 ± 0.1057
 
 
 1) Model number 1 according to HAMMING LOSS
-support vector machines:0.0420 ± 0.0270
+quadratic discriminant analysis:0.0293 ± 0.0184
 2) Model number 2 according to HAMMING LOSS
-logistic regression:0.0453 ± 0.0273
+linear discriminant analysis:0.0353 ± 0.0217
 3) Model number 3 according to HAMMING LOSS
-k-nearest neighbors:0.0527 ± 0.0250
+support vector machines:0.0420 ± 0.0270
 4) Model number 4 according to HAMMING LOSS
-random forest:0.0573 ± 0.0334
+logistic regression:0.0453 ± 0.0273
 5) Model number 5 according to HAMMING LOSS
-naive bayes:0.1020 ± 0.0336
+k-nearest neighbors:0.0527 ± 0.0250
 6) Model number 6 according to HAMMING LOSS
+random forest:0.0567 ± 0.0331
+7) Model number 7 according to HAMMING LOSS
+naive bayes:0.1020 ± 0.0336
+8) Model number 8 according to HAMMING LOSS
 adaboost:0.1513 ± 0.1057

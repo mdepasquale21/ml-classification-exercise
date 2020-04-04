@@ -59,9 +59,12 @@ ada = AdaBoostClassifier()
 rf = RandomForestClassifier(class_weight='balanced')
 nb = GaussianNB()
 svm = SVC(probability=True, class_weight='balanced')
+lda = LinearDiscriminantAnalysis()
+qda = QuadraticDiscriminantAnalysis()
 
 models = {'logistic regression':logit, 'k-nearest neighbors':knn, 'adaboost':ada,
-           'random forest':rf, 'naive bayes':nb, 'support vector machines':svm}
+           'random forest':rf, 'naive bayes':nb, 'support vector machines':svm,
+           'linear discriminant analysis': lda, 'quadratic discriminant analysis':qda}
 
 metrics_functions = {
 'accuracy':get_balanced_accuracy,
