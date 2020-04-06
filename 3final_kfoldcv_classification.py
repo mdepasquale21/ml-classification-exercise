@@ -25,28 +25,16 @@ import operator
 
 ##########################################################################################################
 ##################### Importing the dataset
-from sklearn import datasets
 from sklearn.decomposition import PCA
-
-#import data
-iris = datasets.load_iris()
-_X = iris.data
-y = iris.target
-
-#make 2-D array of target variables
-df_y = [[int(target)] for target in y]
-
-#concatenate X array and df_y array in one row with all 5 columns
-data = np.concatenate((_X, df_y), axis=1)
-#print(data)
 
 #define types
 types_dict = {0:'Setosa', 1:'Versicolour', 2:'Virginica'}
-#define columns
-columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Type']
 
-#create a DataFrame with those data
-dataset = pd.DataFrame(data=data, columns=columns)
+#import data
+dataset = pd.read_csv('./data-iris.csv')
+
+_X = dataset.iloc[:, :-1]
+y = dataset.iloc[:, -1].astype(int)
 
 pca = PCA(n_components=2)
 X = pca.fit_transform(_X)
