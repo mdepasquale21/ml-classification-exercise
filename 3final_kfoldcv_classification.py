@@ -109,6 +109,7 @@ for metric, values in sorted(results.items()):
     plt.title(metric.capitalize())
     plt.boxplot([values[model] for model in names], labels=names, showmeans=True)
     plt.xticks(rotation=90)
+    plt.grid(color='lightgray', linestyle='--', linewidth=0.5)
     plt.tight_layout()
     plt.savefig(path_to_plot_dir+metric+'.png', dpi=250)
     plt.clf()
