@@ -8,11 +8,13 @@ from sklearn.pipeline import make_pipeline, make_union
 from tpot.builtins import StackingEstimator
 from tpot.export_utils import set_param_recursive
 
-# NOTE: Make sure that the outcome column is labeled 'target' in the data file
-tpot_data = pd.read_csv('PATH/TO/DATA/FILE', sep='COLUMN_SEPARATOR', dtype=np.float64)
-features = tpot_data.drop('target', axis=1)
+# NOTE: Make sure that the outcome column is labeled 'target' in the data file -> no, manually changed to 'Type' in this script
+tpot_data = pd.read_csv('../data-iris.csv') #manually removed separator and dtype, handling them by myself!
+output = tpot_data['Type'].astype(int)
+features = tpot_data.drop('Type', axis=1)
+
 training_features, testing_features, training_target, testing_target = \
-            train_test_split(features, tpot_data['target'], random_state=42)
+            train_test_split(features, output, random_state=42)
 
 # Average CV score on the training set was: 0.9527027027027025
 exported_pipeline = make_pipeline(
@@ -25,3 +27,6 @@ set_param_recursive(exported_pipeline.steps, 'random_state', 42)
 
 exported_pipeline.fit(training_features, training_target)
 results = exported_pipeline.predict(testing_features)
+
+print('RESULTS OF THE TPOT PIPELINE:')
+print(results)

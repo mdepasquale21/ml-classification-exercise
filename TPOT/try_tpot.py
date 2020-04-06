@@ -29,6 +29,7 @@ columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width', 'Type']
 
 #create a DataFrame with those data
 dataset = pd.DataFrame(data=data, columns=columns)
+#dataset.to_csv('./data-iris.csv', index=False)
 
 pca = PCA(n_components=2)
 X = pca.fit_transform(_X)
