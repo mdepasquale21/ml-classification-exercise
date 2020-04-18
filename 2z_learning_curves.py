@@ -83,6 +83,8 @@ for name, model in sorted(models.items()):
                          train_scores_mean + train_scores_std, alpha=0.1, color="r")
         plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
                          test_scores_mean + test_scores_std, alpha=0.1, color="g")
+        plt.ylabel(metrics_name)
+        plt.xlabel("Training Set Size (# examples)")
         plt.grid(color='lightgray', linestyle='--', linewidth=0.5)
         plt.savefig(path_to_plot_dir+name+'_'+metrics_name+'_learning_curve.png', dpi=250)
         plt.clf()
