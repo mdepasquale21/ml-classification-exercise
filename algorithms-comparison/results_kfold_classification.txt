@@ -9,7 +9,7 @@ logistic regression:0.9546 ± 0.0275
 5) Model number 5 according to ACCURACY
 k-nearest neighbors:0.9475 ± 0.0249
 6) Model number 6 according to ACCURACY
-random forest:0.9439 ± 0.0305
+random forest:0.9461 ± 0.0270
 7) Model number 7 according to ACCURACY
 naive bayes:0.8982 ± 0.0341
 8) Model number 8 according to ACCURACY
@@ -27,7 +27,7 @@ logistic regression:0.9547 ± 0.0273
 5) Model number 5 according to F1
 k-nearest neighbors:0.9473 ± 0.0250
 6) Model number 6 according to F1
-random forest:0.9400 ± 0.0327
+random forest:0.9433 ± 0.0306
 7) Model number 7 according to F1
 naive bayes:0.8980 ± 0.0336
 8) Model number 8 according to F1
@@ -45,7 +45,7 @@ logistic regression:0.0453 ± 0.0273
 5) Model number 5 according to HAMMING LOSS
 k-nearest neighbors:0.0527 ± 0.0250
 6) Model number 6 according to HAMMING LOSS
-random forest:0.0593 ± 0.0290
+random forest:0.0580 ± 0.0320
 7) Model number 7 according to HAMMING LOSS
 naive bayes:0.1020 ± 0.0336
 8) Model number 8 according to HAMMING LOSS

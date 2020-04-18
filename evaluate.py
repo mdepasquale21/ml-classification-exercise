@@ -1,7 +1,7 @@
 import numpy as np
 from sklearn.metrics import f1_score, precision_score, recall_score
 from sklearn.metrics import balanced_accuracy_score, hamming_loss
-from sklearn.model_selection import cross_val_score, RepeatedStratifiedKFold, learning_curve
+from sklearn.model_selection import cross_val_score, learning_curve
 from sklearn.metrics import make_scorer
 
 def get_balanced_accuracy(y_true, y_pred):
