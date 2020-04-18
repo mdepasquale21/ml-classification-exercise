@@ -79,6 +79,10 @@ for name, model in sorted(models.items()):
         plt.plot(train_sizes, train_scores_mean, 'o-', color="r", label="Training "+metrics_name)
         plt.plot(train_sizes, test_scores_mean, 'o-', color="g", label="RSKF CV "+metrics_name)
         plt.legend(loc="best")
+        plt.fill_between(train_sizes, train_scores_mean - train_scores_std,
+                         train_scores_mean + train_scores_std, alpha=0.1, color="r")
+        plt.fill_between(train_sizes, test_scores_mean - test_scores_std,
+                         test_scores_mean + test_scores_std, alpha=0.1, color="g")
         plt.grid(color='lightgray', linestyle='--', linewidth=0.5)
         plt.savefig(path_to_plot_dir+name+'_'+metrics_name+'_learning_curve.png', dpi=250)
         plt.clf()
